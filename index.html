@@ -26,6 +26,19 @@ button{cursor:pointer;border:0;background:none;padding:0}
 .shell-idea{color:#BFA79B;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .shell-idea b{color:#EFE3DA;font-weight:600}
 .spacer{flex:1}
+.opt-sel{display:none;flex:1;min-width:0;height:36px;padding:0 10px;border:0;border-radius:8px;background:#2C211D;color:#EFE3DA;font-weight:600}
+@media (max-width:720px){
+  body{display:flex;flex-direction:column;height:100dvh}
+  .shell{height:auto;padding:10px 16px;gap:8px}
+  .shell-row{flex-wrap:wrap;overflow:visible;gap:8px 10px}
+  .shell-title{width:100%;font-size:13px;color:#BFA79B}
+  #optSeg,.spacer,.seg-device{display:none}
+  .opt-sel{display:block}
+  .shell-idea{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+  .viewport{height:auto;flex:1;min-height:0}
+  .viewport.mobile{padding:0}
+  .viewport.mobile .frame{width:100%;height:100%;border-radius:0;box-shadow:none}
+}
 
 .viewport{height:calc(100% - 96px);display:grid;place-items:center;overflow:hidden}
 .frame{position:relative;width:100%;height:100%;container-type:inline-size;container-name:stage;overflow:hidden;background:#fff}
@@ -200,7 +213,7 @@ button{cursor:pointer;border:0;background:none;padding:0}
 .o1 .card{text-align:left;display:flex;flex-direction:column;gap:12px}
 .o1 .card .ph1{position:relative;overflow:hidden;background:var(--soft)}
 .o1 .card img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .5s ease}
-.o1 .card:hover img{transform:scale(1.03)}
+.o1 .card:is(:hover,.is-live) img{transform:scale(1.03)}
 .o1 .card .tagline{position:absolute;left:12px;top:12px;background:var(--surface);font-size:13px;padding:6px 12px}
 .o1 .card.is-vendida img{filter:grayscale(.7);opacity:.6}
 .o1 .card .nm{font-size:16px}
@@ -256,7 +269,7 @@ button{cursor:pointer;border:0;background:none;padding:0}
 .o2 .card.is-vendida .ph2 img{filter:grayscale(.75);opacity:.55}
 .o2 .tag{position:absolute;top:-8px;right:18px;width:88px;padding:26px 8px 12px;background:var(--kraft);color:#3A2621;text-align:center;transform:rotate(5deg);transform-origin:50% 0;clip-path:polygon(22% 0,78% 0,100% 16%,100% 100%,0 100%,0 16%);transition:transform .35s ease;filter:drop-shadow(0 2px 2px rgba(0,0,0,.15))}
 .o2 .tag::before{content:"";position:absolute;top:9px;left:50%;width:10px;height:10px;margin-left:-5px;border-radius:50%;background:var(--bg);box-shadow:inset 0 1px 2px rgba(0,0,0,.3)}
-.o2 .card:hover .tag{transform:rotate(-3deg)}
+.o2 .card:is(:hover,.is-live) .tag{transform:rotate(-3deg)}
 .o2 .tag small{display:block;font-size:11px;letter-spacing:.04em;opacity:.75}
 .o2 .tag b{display:block;font-family:"Caveat",cursive;font-size:29px;line-height:1;font-weight:700}
 .o2 .tag.reservada{background:#F0D9A4}
@@ -304,7 +317,7 @@ button{cursor:pointer;border:0;background:none;padding:0}
 .o3 .track{display:flex;gap:30px;padding:0 40px;width:max-content;background:linear-gradient(180deg,#E3C29F,#9C7552) no-repeat 0 22px/100% 7px;padding-top:6px}
 .o3 .light .track{background-image:linear-gradient(180deg,#D6B08B,#8E6A4B)}
 .o3 .hang{width:210px;scroll-snap-align:start;display:flex;flex-direction:column;align-items:center;text-align:center;transform-origin:50% 14px;transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
-.o3 .hang:hover{transform:rotate(-2.5deg)}
+.o3 .hang:is(:hover,.is-live){transform:rotate(-2.5deg)}
 .o3 .hang svg{width:84px;height:46px;color:var(--brass);margin-bottom:-4px;position:relative;z-index:1}
 .o3 .light .hang svg{color:#8E6A4B}
 .o3 .hang .ph3{position:relative;width:100%;border-radius:22px 22px 14px 14px;overflow:hidden;background:var(--soft)}
@@ -369,7 +382,7 @@ button{cursor:pointer;border:0;background:none;padding:0}
 .o4 .card img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .6s ease,filter .4s}
 .o4 .card:first-child .ph4{flex:1;min-height:320px}
 .o4 .card:first-child img{position:absolute;inset:0;height:100%;aspect-ratio:auto}
-.o4 .card:hover img{transform:scale(1.04)}
+.o4 .card:is(:hover,.is-live) img{transform:scale(1.04)}
 .o4 .card.is-vendida img{filter:grayscale(1) brightness(.6)}
 .o4 .card .flag{position:absolute;left:0;top:14px;background:var(--accent);color:var(--accent-ink);font-size:13px;padding:4px 12px}
 .o4 .card .flag.vendida{background:var(--ink)}
@@ -379,7 +392,7 @@ button{cursor:pointer;border:0;background:none;padding:0}
 .o4 .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:72px 5vw 0}
 .o4 .tile{position:relative;aspect-ratio:3/4;overflow:hidden;text-align:left}
 .o4 .tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.55);transition:filter .4s}
-.o4 .tile:hover img{filter:brightness(.75)}
+.o4 .tile:is(:hover,.is-live) img{filter:brightness(.75)}
 .o4 .tile span{position:absolute;left:18px;bottom:16px;font-family:var(--fd);font-size:30px;color:#fff}
 .o4 .tile small{display:block;font-family:var(--fb);font-size:13px;color:#E5CFC4}
 .o4 .chipbar{display:flex;gap:18px;margin-bottom:26px;flex-wrap:wrap}
@@ -758,12 +771,13 @@ button{cursor:pointer;border:0;background:none;padding:0}
   <div class="shell-row">
     <span class="shell-title">Magnita, protótipos do site</span>
     <div class="seg" id="optSeg" role="group" aria-label="Opção de design"></div>
+    <select class="opt-sel" id="optSel" aria-label="Opção de design"></select>
     <span class="spacer"></span>
     <div class="seg" role="group" aria-label="Tela">
       <button data-act="view" data-v="loja">Loja</button>
       <button data-act="view" data-v="admin">Área das donas</button>
     </div>
-    <div class="seg" role="group" aria-label="Aparelho">
+    <div class="seg seg-device" role="group" aria-label="Aparelho">
       <button data-act="device" data-v="desktop">Computador</button>
       <button data-act="device" data-v="mobile">Celular</button>
     </div>
@@ -1341,6 +1355,7 @@ function toast(msg) {
 
 function renderShell() {
   $("#optSeg").innerHTML = OPTIONS.map(o => `<button data-act="opt" data-v="${o.n}" ${pressed(S.opt === o.n)}>${o.n}. ${o.name}</button>`).join("");
+  $("#optSel").innerHTML = OPTIONS.map(o => `<option value="${o.n}" ${S.opt === o.n ? "selected" : ""}>${o.n}. ${o.name}</option>`).join("");
   document.querySelectorAll('[data-act=view]').forEach(b => b.setAttribute("aria-pressed", b.dataset.v === S.view));
   document.querySelectorAll('[data-act=device]').forEach(b => b.setAttribute("aria-pressed", b.dataset.v === S.device));
   const o = OPTIONS[S.opt - 1];
@@ -1354,8 +1369,21 @@ function render(keepScroll = true) {
   st.innerHTML = `<div class="opt ${o.cls}">${S.view === "loja" ? STORES[S.opt][0]() : admin()}</div>`;
   st.style.scrollBehavior = "auto"; st.scrollTop = keepScroll ? y : 0; st.style.scrollBehavior = "";
   if (overlayRedraw) overlayRedraw();
+  watchLive();
 }
-function renderGrid() { const g = $("#grid"); if (g) g.innerHTML = STORES[S.opt][1](); }
+function renderGrid() { const g = $("#grid"); if (g) g.innerHTML = STORES[S.opt][1](); watchLive(); }
+
+const LIVE_SELECTOR = ".o1 .card, .o2 .card, .o3 .hang, .o4 .card, .o4 .tile";
+const noHover = matchMedia("(hover: none)");
+const liveObserver = new IntersectionObserver(
+  entries => entries.forEach(en => en.target.classList.toggle("is-live", en.isIntersecting)),
+  { root: document.getElementById("stage"), rootMargin: "-35% 0px -35% 0px" }
+);
+function watchLive() {
+  liveObserver.disconnect();
+  if (!noHover.matches) return;
+  document.querySelectorAll(LIVE_SELECTOR).forEach(el => liveObserver.observe(el));
+}
 
 document.addEventListener("click", e => {
   const el = e.target.closest("[data-act]");
@@ -1417,6 +1445,7 @@ document.addEventListener("input", e => {
   }
 });
 document.addEventListener("change", e => {
+  if (e.target.id === "optSel") { S.opt = +e.target.value; closeOverlay(); render(false); return; }
   if (e.target.id === "files") {
     syncForm();
     const files = [...e.target.files];
